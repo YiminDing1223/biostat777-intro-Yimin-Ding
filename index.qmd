@@ -1,0 +1,16 @@
+---
+title: "Yimin Ding's Website"
+author: "Yimin Ding"
+format:
+  html:
+    theme: cosmo
+---
+
+# Welcome!
+
+Hello! My name is **Yimin** **Ding**, and you can call me Minnie, the same name as the wife of Mickey Mouse, lol. Like Minnie, I love baking and doing sports exercises.
+
+Here is a picture of desserts I made:
+
+![Steamed Cake](Dessert.JPG)
+---

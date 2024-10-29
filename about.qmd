@@ -1,0 +1,15 @@
+---
+title: "About Yimin Ding"
+format: 
+  html: default
+---
+
+# About Me
+
+I am a seocond-year MHS student studying in epidemiology in cardiovascular track. I graduated from Tulane University with an interest switching from infectious disease to chronic disease. My primary interest is relating CVD risk factor to physical activity and sleeping hours. Having a strong passion for improving health outcomes, particularly for aging populations, I enjoy bridging the gap between complex data analysis and real-world applications through using evidence-based data analysis.
+
+## Fun Facts
+- Preferred name given by my mum, who thought I would be happy since I love the character Micky Mouse, however, she would never know that my facourite name is Lizzy, the nickname of Elizabeth in Pride and Prejudice.
+- Starting swimming with the hope of keeping myself from getting hurt, but still having my bones broken and badly twisted more than 10 times.
+- Being named Cheese by my friend, but I hate eating cheese except shredded one.
+---
