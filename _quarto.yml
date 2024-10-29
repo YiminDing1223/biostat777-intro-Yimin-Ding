@@ -3,7 +3,6 @@ project:
 
 website:
   title: "Yimin Ding's Personal Website"
-  theme: cosmo
   navbar:
     right:
       - text: "Home"
