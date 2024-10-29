@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: _site  # Ensure the output is set to the correct folder
 
 website:
   title: "Yimin Ding's Personal Website"
