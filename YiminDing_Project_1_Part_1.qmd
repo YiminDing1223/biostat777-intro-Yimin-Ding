@@ -1,0 +1,10 @@
+---
+title: "Reflection on Building a Brand as a Scientist"
+author: "Yimin Ding"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+format: html
+---
+
+The blog post "Building a Brand as a Scientist" by Stephanie Hicks really impressed me with how important it is to realize what I want my professional identity to be. One question that stood out to me was, **"What do I want to be known for?"** I want to be recognized as a scientist who makes data understandable and actionable, especially in the field of public health. I believe in the power of data to bring about positive change, and I want to use my skills to improve community health outcomes and promote evidence-based decision-making.
+
+Another aspect that resonated with me was how we need to identify our audience. My audience includes both scientific peers and the general public. I want to communicate science in a way that breaks down barriers, making complex ideas more accessible, especially among aging people. By doing so, I aim to bridge the gap between academic research and public understanding, inspiring informed discussions on health and well-being.
