@@ -96,5 +96,19 @@
     "title": "About Yimin Ding",
     "section": "",
     "text": "Preferred name given by my mum, who thought I would be happy since I love the character Micky Mouse, however, she would never know that my facourite name is Lizzy, the nickname of Elizabeth in Pride and Prejudice.\nStarting swimming with the hope of keeping myself from getting hurt, but still having my bones broken and badly twisted more than 10 times.\nBeing named Cheese by my friend, but I hate eating cheese except shredded one."
+  },
+  {
+    "objectID": "YiminDing_Project_1_Part_3.html",
+    "href": "YiminDing_Project_1_Part_3.html",
+    "title": "Data Analysis",
+    "section": "",
+    "text": "# Download the students.csv file locally using wget\nwget https://github.com/stephaniehicks/jhustatprogramming2024/blob/main/projects/01-project/students.csv -O students.csv\n\n# Display the contents of the students.csv file using the cat command\ncat students.csv\n\n# Display only the first 5 lines of the file using head to show the first few lines\nhead -n 5 students.csv\n\n# Display only the last 3 lines of the file using tail to show the last few lines\ntail -n 3 students.csv\n\n# Count the number of lines in the file using wc to count the lines\nwc -l students.csv\n\n# Find all students who are taking \"Math\" as a subject using grep to filter lines with the subject \"Math\"\ngrep 'Math' students.csv\n\n# Find all female students using grep to filter based on gender\ngrep ',F,' students.csv\n\n# Sort the file by the students' ages in ascending order. Use sort to order by the \"Age\" column\nsort -t',' -k3 -n students.csv\n\n# Find the unique subjects listed in the file. Use cut, sort, and uniq to extract unique subjects\ncut -d',' -f6 students.csv | sort | uniq\n\n# Calculate the average grade of the students. Use awk to sum the grades and divide by the number of students\nawk -F',' '{if(NR&gt;1) sum+=$5; count+=1} END {print \"Average Grade:\", sum/(count-1)}' students.csv\n\n# Replace all occurrences of \"Math\" with \"Mathematics\" in the file. Use sed to perform the replacement\nsed 's/Math/Mathematics/g' students.csv &gt; students_updated.csv"
+  },
+  {
+    "objectID": "YiminDing_Project_1_Part_1.html",
+    "href": "YiminDing_Project_1_Part_1.html",
+    "title": "Reflection on Building a Brand as a Scientist",
+    "section": "",
+    "text": "The blog post “Building a Brand as a Scientist” by Stephanie Hicks really impressed me with how important it is to realize what I want my professional identity to be. One question that stood out to me was, “What do I want to be known for?” I want to be recognized as a scientist who makes data understandable and actionable, especially in the field of public health. I believe in the power of data to bring about positive change, and I want to use my skills to improve community health outcomes and promote evidence-based decision-making.\nAnother aspect that resonated with me was how we need to identify our audience. My audience includes both scientific peers and the general public. I want to communicate science in a way that breaks down barriers, making complex ideas more accessible, especially among aging people. By doing so, I aim to bridge the gap between academic research and public understanding, inspiring informed discussions on health and well-being."
   }
 ]

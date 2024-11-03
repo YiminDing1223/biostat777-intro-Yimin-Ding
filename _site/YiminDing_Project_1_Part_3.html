@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Yimin Ding">
+<meta name="dcterms.date" content="2024-10-29">
 
-<title>Example Data Analysis Using Gapminder Dataset – Yimin Ding’s Personal Website</title>
+<title>Data Analysis – Yimin Ding’s Personal Website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./analysis.html" aria-current="page"> 
+    <a class="nav-link" href="./analysis.html"> 
 <span class="menu-text">Analysis</span></a>
   </li>  
 </ul>
@@ -116,14 +118,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Example Data Analysis Using Gapminder Dataset</h1>
+<h1 class="title">Data Analysis</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yimin Ding </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 29, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -133,136 +147,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="example-data-analysis" class="level1">
-<h1>Example Data Analysis</h1>
-<p>For this analysis, I am using the <strong>Gapminder</strong> dataset, which contains data about life expectancy, GDP per capita, and population across different countries and continents over time.</p>
-<section id="research-question" class="level2">
-<h2 class="anchored" data-anchor-id="research-question">Research Question</h2>
-<p>How does <strong>life expectancy</strong> vary with <strong>GDP per capita</strong> across different continents?</p>
-</section>
-<section id="intended-audience" class="level2">
-<h2 class="anchored" data-anchor-id="intended-audience">Intended Audience</h2>
-<p>This analysis is intended for <strong>policy makers</strong>, <strong>public health researchers</strong>, and <strong>general public</strong> who are interested in understanding the impact of economic factors on health outcomes.</p>
-</section>
-<section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
-<p>The dataset comes from the <strong>Gapminder Foundation</strong> and is available through the <strong>gapminder</strong> R package. - Original dataset: <a href="https://www.gapminder.org/data/">Gapminder Dataset</a> - <strong>Data Dictionary</strong>: - `country`: Name of the country - `continent`: Continent where the country is located - `year`: Year of observation - `lifeExp`: Life expectancy at birth (in years) - `gdpPercap`: GDP per capita (in USD) - `pop`: Population size</p>
-</section>
-<section id="load-and-wrangle-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-and-wrangle-data">Load and Wrangle Data</h2>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
+<pre class="{bash}"><code># Download the students.csv file locally using wget
+wget https://github.com/stephaniehicks/jhustatprogramming2024/blob/main/projects/01-project/students.csv -O students.csv
 
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
+# Display the contents of the students.csv file using the cat command
+cat students.csv
 
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 142 × 7
-   country          continent  year lifeExp gdpPercap       pop gdp_log
-   &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;   &lt;dbl&gt;
- 1 Japan            Asia       2007    82.6    31656. 127467972    10.4
- 2 Hong Kong, China Asia       2007    82.2    39725.   6980412    10.6
- 3 Iceland          Europe     2007    81.8    36181.    301931    10.5
- 4 Switzerland      Europe     2007    81.7    37506.   7554661    10.5
- 5 Australia        Oceania    2007    81.2    34435.  20434176    10.4
- 6 Spain            Europe     2007    80.9    28821.  40448191    10.3
- 7 Sweden           Europe     2007    80.9    33860.   9031088    10.4
- 8 Israel           Asia       2007    80.7    25523.   6426679    10.1
- 9 France           Europe     2007    80.7    30470.  61083916    10.3
-10 Canada           Americas   2007    80.7    36319.  33390141    10.5
-# ℹ 132 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="callout-blocks" class="level2">
-<h2 class="anchored" data-anchor-id="callout-blocks">Callout Blocks</h2>
-<blockquote class="blockquote">
-<p><strong>Note</strong>: Higher GDP per capita is often associated with increased life expectancy, indicating the importance of economic stability for health.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Tip</strong>: Policy interventions that focus on economic growth may also contribute to improved health outcomes.</p>
-</blockquote>
-</section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>The analysis of the Gapminder data reveals that <strong>life expectancy</strong> tends to be higher in continents with higher average <strong>GDP per capita</strong>. Additionally, countries with larger populations tend to exhibit a diverse range of life expectancies. This analysis highlights the importance of both <strong>economic</strong> and <strong>demographic</strong> factors in determining health outcomes.</p>
-</section>
-<section id="margin-content" class="level2">
-<h2 class="anchored" data-anchor-id="margin-content">Margin Content</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Health and Wealth
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Countries with higher GDP per capita generally enjoy better health outcomes, emphasizing the importance of economic development.</p>
-</div>
-</div>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ul>
-<li>Gapminder Foundation. “Gapminder Data.” <a href="https://www.gapminder.org/data/">Link</a></li>
-<li>Rosling, Hans. “Factfulness: Ten Reasons We’re Wrong About the World.” 2018.</li>
-<li>OECD. “Health at a Glance 2019: OECD Indicators.” <a href="https://www.oecd.org/health/health-at-a-glance/">Link</a></li>
-</ul>
-</section>
-<section id="functions-used" class="level2">
-<h2 class="anchored" data-anchor-id="functions-used">Functions Used</h2>
-<section id="dplyr" class="level3">
-<h3 class="anchored" data-anchor-id="dplyr">dplyr</h3>
-<ul>
-<li><code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>arrange()</code> ### ggplot2</li>
-<li><code>geom_boxplot()</code>, <code>geom_point()</code>, <code>geom_smooth()</code>, <code>facet_wrap()</code></li>
-</ul>
+# Display only the first 5 lines of the file using head to show the first few lines
+head -n 5 students.csv
+
+# Display only the last 3 lines of the file using tail to show the last few lines
+tail -n 3 students.csv
+
+# Count the number of lines in the file using wc to count the lines
+wc -l students.csv
+
+# Find all students who are taking "Math" as a subject using grep to filter lines with the subject "Math"
+grep 'Math' students.csv
+
+# Find all female students using grep to filter based on gender
+grep ',F,' students.csv
+
+# Sort the file by the students' ages in ascending order. Use sort to order by the "Age" column
+sort -t',' -k3 -n students.csv
+
+# Find the unique subjects listed in the file. Use cut, sort, and uniq to extract unique subjects
+cut -d',' -f6 students.csv | sort | uniq
+
+# Calculate the average grade of the students. Use awk to sum the grades and divide by the number of students
+awk -F',' '{if(NR&gt;1) sum+=$5; count+=1} END {print "Average Grade:", sum/(count-1)}' students.csv
+
+# Replace all occurrences of "Math" with "Mathematics" in the file. Use sed to perform the replacement
+sed 's/Math/Mathematics/g' students.csv &gt; students_updated.csv</code></pre>
 <hr>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
