@@ -1,0 +1,48 @@
+---
+title: "Student Data Analysis"
+author: "Yimin Ding"
+date: "2024-10-29"
+format:
+  html:
+    code-fold: true
+---
+
+```{r, engine='bash'}
+# Part 3: Student Data Analysis in Shell
+
+# Download the students.csv file using wget
+export PATH="/opt/homebrew/bin:$PATH"
+/opt/homebrew/bin/wget https://github.com/stephaniehicks/jhustatprogramming2024/blob/main/projects/01-project/students.csv
+
+# Display the contents of the students.csv file
+cat students.csv
+
+# Display only the first 5 lines of the file
+head -n 5 students.csv
+
+# Display the last 3 lines of the file
+tail -n 3 students.csv
+
+# Count the number of lines in the file
+wc -l students.csv
+
+# Find students taking Math as a subject
+grep 'Math' students.csv
+
+# Find all female students
+grep ',F,' students.csv
+
+# Sort by Age in ascending order
+sort -t',' -k3 -n students.csv
+
+# Find unique subjects
+cut -d',' -f6 students.csv | sort | uniq
+
+# Calculate the average grade
+awk -F',' '{if(NR>1) sum+=$5; count+=1} END {print "Average Grade:", sum/(count-1)}' students.csv
+
+# Replace Math with Mathematics
+sed 's/Math/Mathematics/g' students.csv
+```
+
+------------------------------------------------------------------------

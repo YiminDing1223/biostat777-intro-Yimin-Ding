@@ -9,7 +9,7 @@
 <meta name="author" content="Yimin Ding">
 <meta name="dcterms.date" content="2024-10-29">
 
-<title>Data Analysis – Yimin Ding’s Personal Website</title>
+<title>Student Data Analysis – Yimin Ding’s Personal Website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -118,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Analysis</h1>
+<h1 class="title">Student Data Analysis</h1>
 </div>
 
 
@@ -147,38 +181,120 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<pre class="{bash}"><code># Download the students.csv file locally using wget
-wget https://github.com/stephaniehicks/jhustatprogramming2024/blob/main/projects/01-project/students.csv -O students.csv
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Part 3: Student Data Analysis in Shell</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the students.csv file using wget</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/opt/homebrew/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/homebrew/bin/wget</span> https://github.com/stephaniehicks/jhustatprogramming2024/blob/main/projects/01-project/students.csv</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the contents of the students.csv file</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> students.csv</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Display only the first 5 lines of the file</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 5 students.csv</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the last 3 lines of the file</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 3 students.csv</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of lines in the file</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> students.csv</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Find students taking Math as a subject</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">'Math'</span> students.csv</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all female students</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">',F,'</span> students.csv</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by Age in ascending order</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-t</span><span class="st">','</span> <span class="at">-k3</span> <span class="at">-n</span> students.csv</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Find unique subjects</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d</span><span class="st">','</span> <span class="at">-f6</span> students.csv <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average grade</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-F</span><span class="st">','</span> <span class="st">'{if(NR&gt;1) sum+=$5; count+=1} END {print "Average Grade:", sum/(count-1)}'</span> students.csv</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace Math with Mathematics</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">'s/Math/Mathematics/g'</span> students.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>--2024-11-05 14:21:28--  https://github.com/stephaniehicks/jhustatprogramming2024/blob/main/projects/01-project/students.csv
+Resolving github.com (github.com)... 140.82.112.3
+Connecting to github.com (github.com)|140.82.112.3|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘students.csv.2’
 
-# Display the contents of the students.csv file using the cat command
-cat students.csv
+     0K .......... .......... .......... .......... .......... 1.94M
+    50K .......... .......... .......... .......... .......... 4.78M
+   100K .......... .......... .......... .......... .......... 6.77M
+   150K .......... .......... .......... .......... .......... 8.49M
+   200K .......... .......... .......... .......... .......... 9.82M
+   250K .......... .......... .......... .......... .......... 9.82M
+   300K ..                                                     20.0M=0.06s
 
-# Display only the first 5 lines of the file using head to show the first few lines
-head -n 5 students.csv
+2024-11-05 14:21:30 (5.06 MB/s) - ‘students.csv.2’ saved [309740]
 
-# Display only the last 3 lines of the file using tail to show the last few lines
-tail -n 3 students.csv
-
-# Count the number of lines in the file using wc to count the lines
-wc -l students.csv
-
-# Find all students who are taking "Math" as a subject using grep to filter lines with the subject "Math"
-grep 'Math' students.csv
-
-# Find all female students using grep to filter based on gender
-grep ',F,' students.csv
-
-# Sort the file by the students' ages in ascending order. Use sort to order by the "Age" column
-sort -t',' -k3 -n students.csv
-
-# Find the unique subjects listed in the file. Use cut, sort, and uniq to extract unique subjects
-cut -d',' -f6 students.csv | sort | uniq
-
-# Calculate the average grade of the students. Use awk to sum the grades and divide by the number of students
-awk -F',' '{if(NR&gt;1) sum+=$5; count+=1} END {print "Average Grade:", sum/(count-1)}' students.csv
-
-# Replace all occurrences of "Math" with "Mathematics" in the file. Use sed to perform the replacement
-sed 's/Math/Mathematics/g' students.csv &gt; students_updated.csv</code></pre>
+ID,Name,Age,Gender,Grade,Subject
+1,Alice,20,F,88,Math
+2,Bob,22,M,76,History
+3,Charlie,23,M,90,Math
+4,Diana,21,F,85,Science
+5,Eve,20,F,92,Math
+6,Frank,22,M,72,History
+7,Grace,23,F,78,Science
+8,Heidi,21,F,88,Math
+9,Ivan,20,M,85,Science
+10,Judy,22,F,79,HistoryID,Name,Age,Gender,Grade,Subject
+1,Alice,20,F,88,Math
+2,Bob,22,M,76,History
+3,Charlie,23,M,90,Math
+4,Diana,21,F,85,Science
+8,Heidi,21,F,88,Math
+9,Ivan,20,M,85,Science
+10,Judy,22,F,79,History      10 students.csv
+1,Alice,20,F,88,Math
+3,Charlie,23,M,90,Math
+5,Eve,20,F,92,Math
+8,Heidi,21,F,88,Math
+1,Alice,20,F,88,Math
+4,Diana,21,F,85,Science
+5,Eve,20,F,92,Math
+7,Grace,23,F,78,Science
+8,Heidi,21,F,88,Math
+10,Judy,22,F,79,History
+ID,Name,Age,Gender,Grade,Subject
+1,Alice,20,F,88,Math
+5,Eve,20,F,92,Math
+9,Ivan,20,M,85,Science
+4,Diana,21,F,85,Science
+8,Heidi,21,F,88,Math
+10,Judy,22,F,79,History
+2,Bob,22,M,76,History
+6,Frank,22,M,72,History
+3,Charlie,23,M,90,Math
+7,Grace,23,F,78,Science
+History
+Math
+Science
+Subject
+Average Grade: 83.3
+ID,Name,Age,Gender,Grade,Subject
+1,Alice,20,F,88,Mathematics
+2,Bob,22,M,76,History
+3,Charlie,23,M,90,Mathematics
+4,Diana,21,F,85,Science
+5,Eve,20,F,92,Mathematics
+6,Frank,22,M,72,History
+7,Grace,23,F,78,Science
+8,Heidi,21,F,88,Mathematics
+9,Ivan,20,M,85,Science
+10,Judy,22,F,79,History</code></pre>
+</div>
+</div>
 <hr>
 
 
