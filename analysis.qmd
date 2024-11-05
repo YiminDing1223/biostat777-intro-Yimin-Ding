@@ -9,22 +9,17 @@ bibliography: references.bib
 For this analysis, I am using the **Gapminder** dataset, which contains data about life expectancy, GDP per capita, and population across different countries and continents over time.
 
 ## Research Question
+
 How does **life expectancy** vary with **GDP per capita** across different continents?
 
 ## Intended Audience
+
 This analysis is intended for **policy makers**, **public health researchers**, and **general public** who are interested in understanding the impact of economic factors on health outcomes.
 
 ## Data Source
-The dataset comes from the **Gapminder Foundation** and is available through the **gapminder** R package.
-- Original dataset: [Gapminder Dataset](https://www.gapminder.org/data/)
-- **Data Dictionary**:
-  - \`country\`: Name of the country
-  - \`continent\`: Continent where the country is located
-  - \`year\`: Year of observation
-  - \`lifeExp\`: Life expectancy at birth (in years)
-  - \`gdpPercap\`: GDP per capita (in USD)
-  - \`pop\`: Population size
-  
+
+The dataset comes from the **Gapminder Foundation** and is available through the **gapminder** R package. - Original dataset: [Gapminder Dataset](https://www.gapminder.org/data/) - **Data Dictionary**: - \`country\`: Name of the country - \`continent\`: Continent where the country is located - \`year\`: Year of observation - \`lifeExp\`: Life expectancy at birth (in years) - \`gdpPercap\`: GDP per capita (in USD) - \`pop\`: Population size
+
 ## Load and Wrangle Data
 
 ```{r echo=FALSE}
@@ -81,28 +76,34 @@ ggplot(gapminder_clean, aes(x = pop, y = lifeExp)) +
     y = "Life Expectancy (Years)"
   )
 ```
+
 ## Callout Blocks
+
 > **Note**: Higher GDP per capita is often associated with increased life expectancy, indicating the importance of economic stability for health.
 
 > **Tip**: Policy interventions that focus on economic growth may also contribute to improved health outcomes.
 
 ## Summary
+
 The analysis of the Gapminder data reveals that **life expectancy** tends to be higher in continents with higher average **GDP per capita**. Additionally, countries with larger populations tend to exhibit a diverse range of life expectancies. This analysis highlights the importance of both **economic** and **demographic** factors in determining health outcomes.
 
 ## Margin Content
-::: {.callout-tip}
+
+::: callout-tip
 ### Health and Wealth
+
 Countries with higher GDP per capita generally enjoy better health outcomes, emphasizing the importance of economic development.
 :::
 
 ## References
-- Gapminder Foundation. "Gapminder Data." [Link](https://www.gapminder.org/data/)
-- Rosling, Hans. "Factfulness: Ten Reasons We're Wrong About the World." 2018.
-- OECD. "Health at a Glance 2019: OECD Indicators." [Link](https://www.oecd.org/health/health-at-a-glance/)
+
+-   Gapminder Foundation. "Gapminder Data." [Link](https://www.gapminder.org/data/)
+-   Rosling, Hans. "Factfulness: Ten Reasons We're Wrong About the World." 2018.
+-   OECD. "Health at a Glance 2019: OECD Indicators." [Link](https://www.oecd.org/health/health-at-a-glance/)
 
 ## Functions Used
+
 ### dplyr
-- `select()`, `filter()`, `mutate()`, `arrange()`
-### ggplot2
-- `geom_boxplot()`, `geom_point()`, `geom_smooth()`, `facet_wrap()`
----
+
+-   `select()`, `filter()`, `mutate()`, `arrange()` \### ggplot2
+-   `geom_boxplot()`, `geom_point()`, `geom_smooth()`, `facet_wrap()`

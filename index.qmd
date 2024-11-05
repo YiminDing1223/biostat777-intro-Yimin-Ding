@@ -12,5 +12,4 @@ Hello! My name is **Yimin** **Ding**, and you can call me Minnie, the same name 
 
 Here is a picture of desserts I made:
 
-![Steamed Cake](Dessert.JPG)
----
+## ![Steamed Cake](Dessert.JPG)
